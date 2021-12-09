@@ -1,0 +1,23 @@
+@import '../styles/variables.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  padding: 0 10%;
+  height: 5rem;
+  background-color: $neroColor;
+}
+
+.logo {
+  font-size: 1.8rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $whiteColor;
+
+  a {
+    text-decoration: none;
+    color: $whiteColor;
+  }
+}
