@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+
+import { Show } from 'src/shows/entities/show.entity';
 
 @Entity()
 export class StreamingService {
@@ -10,4 +12,7 @@ export class StreamingService {
 
   @Column({ type: 'varchar', nullable: true })
   logo: string;
+
+  @OneToMany(() => Show, show => show.streamingService)
+  shows: Show[];
 }

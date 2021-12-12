@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+
+import { StreamingService } from 'src/streaming-services/entities/streaming-service.entity';
 
 import { ShowType } from '../types/show-type.type';
 
@@ -36,4 +38,7 @@ export class Show {
 
   @Column({ type: 'varchar', nullable: false })
   plot: string;
+
+  @ManyToOne(() => StreamingService, streamingService => streamingService.shows)
+  streamingService: StreamingService;
 }
