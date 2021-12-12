@@ -6,6 +6,7 @@ import { typeOrmConfig } from './config/typeorm.config';
 import { StreamingServicesModule } from './streaming-services/streaming-services.module';
 import { CountriesModule } from './countries/countries.module';
 import { SubscriptionPlansModule } from './subscription-plans/subscription-plans.module';
+import { SubscriptionPricesModule } from './subscription-prices/subscription-prices.module';
 
 @Module({
   controllers: [AppController],
@@ -15,6 +16,7 @@ import { SubscriptionPlansModule } from './subscription-plans/subscription-plans
     StreamingServicesModule,
     CountriesModule,
     SubscriptionPlansModule,
+    SubscriptionPricesModule,
   ],
 })
 export class AppModule {}
