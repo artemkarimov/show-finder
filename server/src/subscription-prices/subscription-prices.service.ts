@@ -20,4 +20,11 @@ export class SubscriptionPricesService {
       await this.repository.save(subsriptionPrice);
     }
   }
+
+  async findAll() {
+    const subscriptionPrices = await this.repository.find({
+      relations: ['streamingService', 'country', 'subscriptionPlan'],
+    });
+    return subscriptionPrices;
+  }
 }

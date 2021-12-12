@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 
 import { SubscriptionPricesService } from './subscription-prices.service';
 import { AddSubscriptionPriceDto } from './dtos/add-subscription-price.dto';
@@ -10,5 +10,11 @@ export class SubscriptionPricesController {
   @Post()
   async addSubscriptionPrices(@Body() body: AddSubscriptionPriceDto[]) {
     return this.service.create(body);
+  }
+
+  @Get()
+  async getAllSubscriptionPrices() {
+    const subscriptionPrices = this.service.findAll();
+    return subscriptionPrices;
   }
 }
