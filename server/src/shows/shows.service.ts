@@ -11,10 +11,17 @@ export class ShowsService {
     @InjectRepository(Show) private readonly repository: Repository<Show>,
   ) {}
 
-  async create(addShowDtos: AddShowDto[]) {
-    for (const addShowDto of addShowDtos) {
-      const show = this.repository.create({ ...addShowDto });
-      this.repository.save(show);
+  async create(showDtos: AddShowDto[]) {
+    for (const showDto of showDtos) {
+      const show = this.repository.create({ ...showDto });
+      await this.repository.save(show);
     }
+  }
+
+  async findAll() {
+    const shows = await this.repository.find({
+      relations: ['streamingService'],
+    });
+    return shows;
   }
 }
