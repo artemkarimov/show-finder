@@ -21,7 +21,7 @@ export class Show {
   @Column({ type: 'integer', nullable: true })
   releaseYear: number;
 
-  @Column({ type: 'varchar', length: 6, nullable: true })
+  @Column({ type: 'varchar', length: 12, nullable: true })
   releaseYears: string;
 
   @Column({ type: 'varchar', nullable: false })
@@ -37,7 +37,13 @@ export class Show {
   totalSeasons: number;
 
   @Column({ type: 'varchar', nullable: false })
+  poster: string;
+
+  @Column({ type: 'varchar', nullable: false })
   plot: string;
+
+  @Column({ type: 'integer', nullable: false, default: 0 })
+  searchCount: number;
 
   @ManyToOne(() => StreamingService, streamingService => streamingService.shows)
   streamingService: StreamingService;

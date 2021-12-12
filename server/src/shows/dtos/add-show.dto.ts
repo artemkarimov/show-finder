@@ -43,5 +43,8 @@ export class AddShowDto {
   totalSeasons: number;
 
   @IsString()
+  poster: string;
+
+  @IsString()
   plot: string;
 }
