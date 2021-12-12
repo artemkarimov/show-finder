@@ -36,7 +36,7 @@ export class Show {
   @Column({ type: 'integer', nullable: true })
   totalSeasons: number;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: true })
   poster: string;
 
   @Column({ type: 'varchar', nullable: false })
