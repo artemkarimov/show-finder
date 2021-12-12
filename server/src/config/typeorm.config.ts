@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 import { Show } from 'src/shows/entities/show.entity';
+import { StreamingService } from 'src/streaming-services/entities/streaming-service.entity';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -9,6 +10,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   username: 'postgres',
   password: 'root',
   database: 'showfinder',
-  entities: [Show],
+  entities: [Show, StreamingService],
   synchronize: true,
 };

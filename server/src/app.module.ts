@@ -7,6 +7,10 @@ import { StreamingServicesModule } from './streaming-services/streaming-services
 
 @Module({
   controllers: [AppController],
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), ShowsModule, StreamingServicesModule],
+  imports: [
+    TypeOrmModule.forRoot(typeOrmConfig),
+    ShowsModule,
+    StreamingServicesModule,
+  ],
 })
 export class AppModule {}
