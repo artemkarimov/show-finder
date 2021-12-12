@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+
+import { SubscriptionPrice } from 'src/subscription-prices/entities/subscription-price.entity';
 
 @Entity()
 export class Country {
@@ -10,4 +12,10 @@ export class Country {
 
   @Column({ type: 'varchar', length: 2, nullable: false })
   iso3166Code: string;
+
+  @OneToMany(
+    () => SubscriptionPrice,
+    subscriptionPrice => subscriptionPrice.country,
+  )
+  subscriptionPrices: SubscriptionPrice[];
 }

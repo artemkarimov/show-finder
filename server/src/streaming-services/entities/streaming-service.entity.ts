@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 import { Show } from 'src/shows/entities/show.entity';
+import { SubscriptionPrice } from 'src/subscription-prices/entities/subscription-price.entity';
 
 @Entity()
 export class StreamingService {
@@ -15,4 +16,10 @@ export class StreamingService {
 
   @OneToMany(() => Show, show => show.streamingService)
   shows: Show[];
+
+  @OneToMany(
+    () => SubscriptionPrice,
+    subscriptionPrice => subscriptionPrice.subscriptionPlan,
+  )
+  subscriptionPrices: SubscriptionPrice[];
 }

@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+
+import { SubscriptionPrice } from 'src/subscription-prices/entities/subscription-price.entity';
 
 @Entity()
 export class SubscriptionPlan {
@@ -7,4 +9,10 @@ export class SubscriptionPlan {
 
   @Column({ type: 'varchar', nullable: false })
   name: string;
+
+  @OneToMany(
+    () => SubscriptionPrice,
+    subscriptionPrice => subscriptionPrice.streamingService,
+  )
+  subscriptionPrices: SubscriptionPrice[];
 }
