@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { ShowsModule } from './shows/shows.module';
 import { typeOrmConfig } from './config/typeorm.config';
 import { StreamingServicesModule } from './streaming-services/streaming-services.module';
+import { CountriesModule } from './countries/countries.module';
 
 @Module({
   controllers: [AppController],
@@ -11,6 +12,7 @@ import { StreamingServicesModule } from './streaming-services/streaming-services
     TypeOrmModule.forRoot(typeOrmConfig),
     ShowsModule,
     StreamingServicesModule,
+    CountriesModule,
   ],
 })
 export class AppModule {}
