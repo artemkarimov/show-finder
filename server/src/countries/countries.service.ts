@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
-import { AddCountryDto } from './dtos/add-countries.dto';
+import { AddCountryDto } from './dtos/add-country.dto';
 import { Country } from './entities/country.entity';
 
 @Injectable()

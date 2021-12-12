@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 
 import { CountriesService } from './countries.service';
-import { AddCountryDto } from './dtos/add-countries.dto';
+import { AddCountryDto } from './dtos/add-country.dto';
 
 @Controller('countries')
 export class CountriesController {
