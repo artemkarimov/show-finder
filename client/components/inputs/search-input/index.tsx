@@ -7,7 +7,7 @@ interface Props {
 }
 
 const SearchInput: FunctionComponent<Props> = ({ placeholder }) => {
-  return <input className={styles.input} placeholder={placeholder} />;
+  return <input type="text" className={styles.input} placeholder={placeholder} />;
 };
 
 export default SearchInput;
