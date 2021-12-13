@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.input {
+  background-color: $whiteColor;
+  border: 1px solid $neroColor;
+  border-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 18px;
+  padding: 0.9rem;
+  height: 2.2rem;
+  width: 50rem;
+  outline: none;
+}
