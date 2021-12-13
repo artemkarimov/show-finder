@@ -20,7 +20,7 @@ export class ShowsService {
 
   async findAll() {
     const shows = await this.repository.find({
-      relations: ['streamingService'],
+      relations: ['streamingService', 'country'],
     });
     return shows;
   }

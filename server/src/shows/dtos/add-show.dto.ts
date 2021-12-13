@@ -30,9 +30,6 @@ export class AddShowDto {
   releaseYears: string;
 
   @IsString()
-  country: string;
-
-  @IsString()
   language: string;
 
   @IsNumber()
