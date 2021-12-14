@@ -1,6 +1,6 @@
-import StreamingService from './streamingService';
+import StreamingService from './streaming-service';
 import Country from './country';
-import ShowType from '../types/showType';
+import ShowType from '../types/show-type';
 
 interface Show {
   id: number;
