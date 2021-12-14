@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import SearchInput from '../inputs/search-input';
 import Show from '../../common/interfaces/show';
 import { getMatchingShows } from '../../api/api-helper';
+import getArrayUniqueByKey from '../../helpers/array-unique-by-key';
 import styles from './styles.module.scss';
 
 const SearchBar: FunctionComponent = () => {
@@ -16,7 +17,8 @@ const SearchBar: FunctionComponent = () => {
     if (input) {
       const shows = await getMatchingShows(input);
       if (shows.length) {
-        setMatchingShows(shows);
+        const uniqueShows = getArrayUniqueByKey<Show>(shows, 'title')
+        setMatchingShows(uniqueShows);
         if (noShowsFound) setNoShowsFound(false);
       } else setNoShowsFound(true);
     } else {
