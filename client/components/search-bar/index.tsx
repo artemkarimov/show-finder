@@ -1,5 +1,6 @@
 import type { FunctionComponent, ChangeEvent } from 'react';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -8,6 +9,7 @@ import Show from '../../common/interfaces/show';
 import { getMatchingShows } from '../../api/api-helper';
 import getArrayUniqueByKey from '../../helpers/array-unique-by-key';
 import styles from './styles.module.scss';
+import { getSlugFromString } from '../../helpers/slug';
 
 const SearchBar: FunctionComponent = () => {
   const [matchingShows, setMatchingShows] = useState<Show[]>([]);
@@ -69,14 +71,16 @@ const SearchBar: FunctionComponent = () => {
         {!!matchingShows.length &&
           !noShowsFound &&
           matchingShows.map(value => (
-            <a className={styles.item} key={value.id}>
-              <p>
-                {value.title}{' '}
-                <span>
-                  ({value.type}, {value.type === 'film' ? value.releaseYear : value.releaseYears})
-                </span>
-              </p>
-            </a>
+            <Link href={`/shows/${getSlugFromString(value.title)}`}>
+              <a className={styles.item} key={value.id}>
+                <p>
+                  {value.title}{' '}
+                  <span>
+                    ({value.type}, {value.type === 'film' ? value.releaseYear : value.releaseYears})
+                  </span>
+                </p>
+              </a>
+            </Link>
           ))}
         {noShowsFound && <p className={styles['not-found']}>No Shows Found</p>}
       </div>
