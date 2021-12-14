@@ -12,7 +12,7 @@ interface Show {
   language: string;
   runtime: string;
   totalSeasons: number;
-  poster: number | null;
+  poster: string | null;
   plot: string;
   searchCount: number;
   streamingService: StreamingService;
