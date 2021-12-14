@@ -8,10 +8,15 @@
     height: 60px;
     width: 50px;
     place-items: center;
-    margin-left: -2.5rem;
+    margin-left: -2.2rem;
+    margin-top: 0.45rem;
 
     svg {
-      font-size: 35px;
+      font-size: 28px;
+    }
+
+    .close {
+      cursor: pointer;
     }
   }
 }
@@ -29,7 +34,7 @@
   &::-webkit-scrollbar {
     width: 0.3rem;
   }
-   
+
   &::-webkit-scrollbar-thumb {
     background-color: $lightGrayColor;
   }
