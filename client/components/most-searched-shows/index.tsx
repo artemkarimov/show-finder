@@ -19,7 +19,7 @@ const MostSearchedShows: FunctionComponent<Props> = ({ shows }) => {
   });
   return (
     <section className={styles.section}>
-      <h2>Most Serached Shows</h2>
+      <h2>Most Searched Shows</h2>
       <ShowsGrid shows={mostSearchedShows} />
     </section>
   );
