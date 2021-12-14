@@ -2,7 +2,6 @@ import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 
 import { ShowsService } from './shows.service';
 import { AddShowDto } from './dtos/add-show.dto';
-import { GetMatchingShowsDto } from 'src/shows/dtos/get-matching-shows.dto';
 
 @Controller('shows')
 export class ShowsController {
@@ -20,8 +19,9 @@ export class ShowsController {
   }
 
   @Get('matching')
-  async getMatchingShows(@Query() query: GetMatchingShowsDto) {
-    return this.service.find(query);
+  async getMatchingShows(@Query('input') input: string) {
+    const matchingShows = await this.service.findMatching(input);
+    return matchingShows;
   }
 
   @Get('most-searched')
