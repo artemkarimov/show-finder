@@ -1,36 +1,33 @@
 @import '../../styles/variables.scss';
 
 .header {
-  padding-bottom: 2rem;
-  border-bottom: 8px solid $perfumeColor;
-  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 8px solid $gainsboroColor;
   display: flex;
-  // flex-direction: column-reverse;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 
   h1 {
     font-size: 2rem;
-    color: #5a097a;
-    margin-top: -20rem;
+    color: $bastilleColor;
     line-height: initial;
     text-align: center;
 
     @media (min-width: 768px) {
       text-align: left;
+      margin-left: 10rem;
     }
   }
 
   img {
-    object-fit: cover;
     width: 200px;
     height: 120px;
   }
 
   @media (min-width: 768px) {
-    margin: 2rem 0;
+    margin-top: -1.2rem;
     flex-direction: row;
-    align-items: flex-end;
   }
 }

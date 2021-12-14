@@ -27,7 +27,7 @@ const ShowHeader: FunctionComponent<Props> = ({ title, image }) => {
   return (
     <header className={styles.header}>
       <h1>{title}</h1>
-      <Image src={imagePath} alt={title} width={200} height={300} />
+      <Image src={imagePath} alt={title} width={150} height={225} />
     </header>
   );
 };
