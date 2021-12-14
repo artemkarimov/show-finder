@@ -1,3 +1,5 @@
-const getSlug = (phrase: string): string => phrase.toLowerCase().split(' ').join('-');
+export const getSlugFromString = (string: string): string => {
+  return string.toLowerCase().split(' ').join('-');
+};
 
-export default getSlug;
+export const getStringFromSlug = (slug: string): string => slug.split('-').join(' ');
