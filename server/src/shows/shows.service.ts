@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, ILike } from 'typeorm';
+import { Repository, getRepository, ILike } from 'typeorm';
 
 import { AddShowDto } from './dtos/add-show.dto';
 import { GetMatchingShowsDto } from 'src/shows/dtos/get-matching-shows.dto';
@@ -28,7 +28,16 @@ export class ShowsService {
 
   async find(showDto: GetMatchingShowsDto) {
     const { input } = showDto;
-    const countries = await this.repository.find({ title: ILike(`${input}%`) });
-    return countries;
+    const shows = await this.repository.find({ title: ILike(`${input}%`) });
+    return shows;
+  }
+
+  async findMostSearched(limit: number) {
+    const mostSearchedShows = await getRepository(Show)
+      .createQueryBuilder('show')
+      .orderBy(`"searchCount"`, 'DESC')
+      .limit(limit)
+      .getMany();
+    return mostSearchedShows;
   }
 }

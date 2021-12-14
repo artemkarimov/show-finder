@@ -23,4 +23,10 @@ export class ShowsController {
   async getMatchingShows(@Query() query: GetMatchingShowsDto) {
     return this.service.find(query);
   }
+
+  @Get('most-searched')
+  async getMostSearchedShows(@Query('limit') limit: string) {
+    const mostSearchedShows = await this.service.findMostSearched(+limit);
+    return mostSearchedShows;
+  }
 }
