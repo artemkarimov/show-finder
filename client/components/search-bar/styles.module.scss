@@ -19,7 +19,7 @@
 .search-result {
   margin-top: 5px;
   width: 50rem;
-  height: 200px;
+  height: 250px;
   background-color: $whiteColor;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
@@ -27,7 +27,11 @@
   margin-left: 1rem;
 
   &::-webkit-scrollbar {
-    display: none;
+    width: 0.3rem;
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    background-color: $lightGrayColor;
   }
 
   .item {
@@ -53,5 +57,11 @@
 
   p {
     margin-left: 10px;
+  }
+
+  .not-found {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 2.1rem;
   }
 }
