@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.select {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid $veryLightGrayColor;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  outline: none;
+  color: $grayColor;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.invalid {
+  border-color: $redColor;
+  background-color: $mistyRoseColor;
+}
+
+.error-message {
+  color: $redColor;
+  margin-top: -0.5rem;
+}
