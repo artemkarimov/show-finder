@@ -5,6 +5,7 @@ import { StreamingService } from 'src/streaming-services/entities/streaming-serv
 import { Country } from 'src/countries/entities/country.entity';
 import { SubscriptionPlan } from 'src/subscription-plans/entities/subscription-plan.entity';
 import { SubscriptionPrice } from 'src/subscription-prices/entities/subscription-price.entity';
+import { User } from 'src/users/entities/user.entity';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -19,6 +20,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     Country,
     SubscriptionPlan,
     SubscriptionPrice,
+    User,
   ],
   synchronize: true,
 };

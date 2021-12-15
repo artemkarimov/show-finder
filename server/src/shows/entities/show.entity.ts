@@ -46,5 +46,5 @@ export class Show {
   streamingService: StreamingService;
 
   @ManyToOne(() => Country, country => country.shows)
-  country: StreamingService;
+  country: Country;
 }
