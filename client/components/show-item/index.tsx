@@ -2,19 +2,24 @@ import { FunctionComponent, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import ShowType from '../../common/types/show-type';
 import loadImage from '../../helpers/image-loader';
+import capitalise from '../../helpers/capitaliser';
 import { FALLBACK_IMAGE_PATH } from '../../constants';
 import styles from './styles.module.scss';
 
-interface Props {
+export interface Props {
+  type: ShowType;
   title: string;
   image: string;
   plot: string;
+  releasePeriod: string;
   link: string;
 }
 
-const ShowItem: FunctionComponent<Props> = ({ title, image, plot, link }) => {
+const ShowItem: FunctionComponent<Props> = ({ type, title, image, plot, releasePeriod, link }) => {
   const [imagePath, setImagePath] = useState<string>('');
+  console.log(type, releasePeriod);
   useEffect(() => {
     const getImagePath = async () => {
       const url = await loadImage(image);
@@ -36,6 +41,9 @@ const ShowItem: FunctionComponent<Props> = ({ title, image, plot, link }) => {
           </div>
           <div className={styles.content}>
             <h3>{title}</h3>
+            <h4>
+              {capitalise(type)}, {releasePeriod}
+            </h4>
             <p>{plot}</p>
           </div>
         </a>
