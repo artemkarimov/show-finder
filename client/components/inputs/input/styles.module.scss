@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.input {
+  width: 100%;
+  height: 2rem;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  outline: none;
+  margin-bottom: 1rem;
+  border: 1px solid $veryLightGrayColor;
+
+  &::placeholder {
+    font-size: 0.9rem;
+    color: $grayColor;
+  }
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.invalid-input {
+  border-color: $redColor;
+  background-color: $mistyRoseColor;
+}
+
+.error-message {
+  color: $redColor;
+  margin-top: -0.5rem;
+}
