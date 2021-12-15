@@ -7,6 +7,7 @@ import { StreamingServicesModule } from './streaming-services/streaming-services
 import { CountriesModule } from './countries/countries.module';
 import { SubscriptionPlansModule } from './subscription-plans/subscription-plans.module';
 import { SubscriptionPricesModule } from './subscription-prices/subscription-prices.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   controllers: [AppController],
@@ -17,6 +18,7 @@ import { SubscriptionPricesModule } from './subscription-prices/subscription-pri
     CountriesModule,
     SubscriptionPlansModule,
     SubscriptionPricesModule,
+    UsersModule,
   ],
 })
 export class AppModule {}
