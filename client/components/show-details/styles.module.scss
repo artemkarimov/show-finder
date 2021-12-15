@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.content {
+  width: 95%;
+  max-width: 60rem;
+  margin: 2rem auto;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  background-color: $lightGrayColor;
+  border-radius: 6px;
+  padding: 1rem;
+
+  p {
+    color: $bastilleColor;
+  }
+
+  .image {
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+.details {
+  display: flex;
+  flex: 1 1 0px;
+
+  section:nth-child(2) {
+    max-width: 25rem;
+  }
+
+  .show-details {
+    margin-left: 10rem;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 1.1rem;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}

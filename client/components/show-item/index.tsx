@@ -19,7 +19,6 @@ export interface Props {
 
 const ShowItem: FunctionComponent<Props> = ({ type, title, image, plot, releasePeriod, link }) => {
   const [imagePath, setImagePath] = useState<string>('');
-  console.log(type, releasePeriod);
   useEffect(() => {
     const getImagePath = async () => {
       const url = await loadImage(image);
