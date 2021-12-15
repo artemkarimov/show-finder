@@ -4,22 +4,16 @@ import SearchBar from '../components/search-bar';
 import MostSearchedShows from '../components/most-searched-shows';
 import Show from '../common/interfaces/show';
 import { getMostSearchedShows } from '../api/api-helper';
-import styles from './styles.module.scss';
 
 interface Props {
   mostSearchedShows: Show[];
 }
 
 const HomePage: NextPage<Props> = ({ mostSearchedShows }) => {
-  console.log(mostSearchedShows);
   return (
     <>
-      <div className={styles['search-bar']}>
-        <SearchBar />
-      </div>
-      <div>
-        <MostSearchedShows shows={mostSearchedShows} />
-      </div>
+      <SearchBar />
+      <MostSearchedShows shows={mostSearchedShows} />
     </>
   );
 };
