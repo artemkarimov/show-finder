@@ -17,7 +17,7 @@ const HomePage: NextPage<Props> = ({ mostSearchedShows }) => {
       <div className={styles['search-bar']}>
         <SearchBar />
       </div>
-      <div className={styles['most-searched']}>
+      <div>
         <MostSearchedShows shows={mostSearchedShows} />
       </div>
     </>

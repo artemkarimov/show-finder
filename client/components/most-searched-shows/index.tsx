@@ -12,10 +12,16 @@ interface Props {
 
 const MostSearchedShows: FunctionComponent<Props> = ({ shows }) => {
   const mostSearchedShows = shows.map(show => {
-    const { title, poster, plot } = show;
+    const { type, title, poster, plot, releaseYear, releaseYears } = show;
     const slug = getSlugFromString(title);
-    if (poster) return { title, image: poster, plot, link: `/shows/${slug}` };
-    else return { title, image: FALLBACK_IMAGE_PATH, plot, link: `${slug}` };
+    return {
+      type,
+      title,
+      image: poster ? poster : FALLBACK_IMAGE_PATH,
+      plot,
+      link: `/shows/${slug}`,
+      releasePeriod: releaseYear ? releaseYear.toString() : releaseYears!,
+    };
   });
   return (
     <section className={styles.section}>
