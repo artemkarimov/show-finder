@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 import Show from '../common/interfaces/show';
+import SubscriptionPlan from '../common/interfaces/subscription-plan';
 
 const SERVER_HOST = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -26,4 +27,12 @@ export const getBlobData = async (url: string): Promise<Blob> => {
   });
   const blob = response.data;
   return blob;
+};
+
+export const getAllSubscriptionPrices = async (): Promise<SubscriptionPlan[]> => {
+  const response: AxiosResponse<SubscriptionPlan[]> = await axios.get(
+    `${SERVER_HOST}/subscription-prices`
+  );
+  const subscriptionPrices = response.data;
+  return subscriptionPrices;
 };
