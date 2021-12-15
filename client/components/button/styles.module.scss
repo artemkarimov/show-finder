@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.button {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font: inherit;
+  background-color: $grayColor;
+  border: 1px solid $grayColor;
+  color: $whiteColor;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  display: inline-block;
+  outline: none;
+  &:hover,
+  &:active {
+    background-color: $dimGrayColor;
+    border-color: $dimGrayColor;
+  }
+}
+
+.flat {
+  background-color: transparent;
+  color: $grayColor;
+  border: 1px solid $grayColor;
+  &:hover,
+  &:active {
+    color: $whiteColor;
+    background-color: $grayColor;
+  }
+}
