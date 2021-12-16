@@ -8,22 +8,21 @@ import {
   Session,
 } from '@nestjs/common';
 
-import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { SignUserInDto } from './dtos/sign-user-in.dto';
+import { User } from './entities/user.entity';
+import { CurrentUser } from './decorators/current-user.decorator';
+import { CurrentUserInterceptor } from './interceptors/current-user.interceptor';
 
 @Controller('users')
+@UseInterceptors(CurrentUserInterceptor)
 export class UsersController {
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Get('current-user')
-  async getCurrentUser(@Session() session: any) {
-    const user = await this.usersService.findOne(session.userId);
+  async getCurrentUser(@CurrentUser() user: User) {
     return user;
   }
 
