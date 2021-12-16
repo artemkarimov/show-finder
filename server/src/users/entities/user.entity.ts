@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import { Country } from 'src/countries/entities/country.entity';
 
@@ -17,8 +18,12 @@ export class User {
   userName: string;
 
   @Column({ type: 'varchar', nullable: false })
+  @Exclude()
   password: string;
 
   @ManyToOne(() => Country, country => country.users)
   country: Country;
+
+  @Column()
+  countryId: number;
 }
