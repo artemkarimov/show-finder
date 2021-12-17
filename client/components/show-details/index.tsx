@@ -1,15 +1,21 @@
 import type { FunctionComponent } from 'react';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 import SearchBar from '../search-bar';
 import ShowHeader from '../show-header';
+import LoadingSpinner from '../loading-spinner';
+import Button from '../button';
 import Show from '../../common/interfaces/show';
+import StaticRoutes from '../../common/enums/static-routes';
+import { State } from '../../store';
 import prepareShowDetails from '../../helpers/show-details';
 import getLogoPath from '../../helpers/logo-path';
-import LoadingSpinner from '../loading-spinner';
-import styles from './styles.module.scss';
 import capitalise from '../../helpers/capitaliser';
+import styles from './styles.module.scss';
 
 interface Props {
   shows: Show[];
@@ -19,6 +25,8 @@ const ShowDetails: FunctionComponent<Props> = ({ shows }) => {
   const show = shows[0];
   const showDetails = prepareShowDetails(show);
   const [imagesPaths, setImagesPaths] = useState<string[]>([]);
+  const isAuthenticated = useSelector((state: State) => state.auth.isAuthenticated);
+  const router = useRouter();
   useEffect(() => {
     const getImagesPaths = async () => {
       const paths: string[] = [];
@@ -58,17 +66,24 @@ const ShowDetails: FunctionComponent<Props> = ({ shows }) => {
                 );
               })}
             </ul>
-            {shows.length === 1 && (
+            {!isAuthenticated && shows.length === 1 && (
               <p className={styles.message}>
                 If you want to see if this streaming service is available in your country and
-                checkout its subscription plans, please sign in
+                checkout its subscription plans, please{' '}
+                <Link href={StaticRoutes.SIGNIN}>sign in</Link>
               </p>
             )}
-            {shows.length > 1 && (
+            {!isAuthenticated && shows.length > 1 && (
               <p className={styles.message}>
                 If you want to see which of these streaming services are available in your country
-                and checkout their subscription plans, please sign in.
+                and checkout their subscription plans, please{' '}
+                <Link href={StaticRoutes.SIGNIN}>sign in</Link>
               </p>
+            )}
+            {isAuthenticated && (
+              <Button flat={true} link={`/shows/${router.query.id}/subscription-plans`}>
+                Checkout subscription plans
+              </Button>
             )}
           </section>
           <section>

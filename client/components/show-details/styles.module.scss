@@ -12,6 +12,14 @@
 
   p {
     color: $bastilleColor;
+
+    a {
+      color: $blueColor;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .image {
