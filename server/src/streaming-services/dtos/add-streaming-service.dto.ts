@@ -5,5 +5,5 @@ export class AddStreamingServiceDto {
   name: string;
 
   @IsString()
-  logo: string;
+  link: string;
 }

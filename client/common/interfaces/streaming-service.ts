@@ -1,7 +1,7 @@
 interface StreamingService {
   id: number;
   name: string;
-  logo: string;
+  link: string;
 }
 
 export default StreamingService;

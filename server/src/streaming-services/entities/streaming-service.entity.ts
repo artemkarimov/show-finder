@@ -11,8 +11,8 @@ export class StreamingService {
   @Column({ type: 'varchar', nullable: false })
   name: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  logo: string;
+  @Column({ type: 'varchar', nullable: false })
+  link: string;
 
   @OneToMany(() => Show, show => show.streamingService)
   shows: Show[];
