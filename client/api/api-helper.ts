@@ -71,10 +71,13 @@ export const signUserIn = async (signinData: SigninData): Promise<User> => {
   return user;
 };
 
-export const getCurrentUser = async (): Promise<User> => {
-  const response: AxiosResponse<User> = await axios.get(`${SERVER_HOST}/users/current-user`, {
-    withCredentials: true,
-  });
+export const getCurrentUser = async (): Promise<User | null> => {
+  const response: AxiosResponse<User | null> = await axios.get(
+    `${SERVER_HOST}/users/current-user`,
+    {
+      withCredentials: true,
+    }
+  );
   const user = response.data;
   return user;
 };
