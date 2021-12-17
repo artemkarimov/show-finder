@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import SearchBar from '../search-bar';
 import ShowHeader from '../show-header';
 import LoadingSpinner from '../loading-spinner';
-import Button from '../button';
+import Button from '../buttons/button';
 import Show from '../../common/interfaces/show';
 import StaticRoutes from '../../common/enums/static-routes';
 import { State } from '../../store';
