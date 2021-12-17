@@ -88,3 +88,11 @@ export const signUserOut = async (): Promise<void> => {
     }
   );
 };
+
+export const getUsersByUserName = async (input: string): Promise<User[]> => {
+  const response: AxiosResponse<User[]> = await axios.get(
+    `${SERVER_HOST}/users/user-name?input=${input}`
+  );
+  const users = response.data;
+  return users;
+};
