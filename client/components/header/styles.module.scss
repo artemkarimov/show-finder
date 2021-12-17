@@ -6,6 +6,27 @@
   padding: 0 10%;
   height: 5rem;
   background-color: $neroColor;
+
+  nav {
+    margin-left: 50rem;
+    margin-top: 0.5rem;
+
+    ul {
+      list-style: none;
+      display: flex;
+
+      li {
+        margin-left: 2rem;
+        font-size: 1.2rem;
+        color: $grayColor;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 .logo {
