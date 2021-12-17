@@ -9,8 +9,8 @@ import { CreateUserDto } from './dtos/create-user.dto';
 export class UsersService {
   constructor(@InjectRepository(User) private readonly repository: Repository<User>) {}
 
-  async find(userName: string) {
-    const users = await this.repository.find({ userName });
+  async find(object: Partial<User>) {
+    const users = await this.repository.find(object);
     return users;
   }
 

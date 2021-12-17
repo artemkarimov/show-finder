@@ -14,7 +14,7 @@ export class AuthService {
 
   async signup(userDto: CreateUserDto) {
     const { firstName, lastName, countryId, userName, password } = userDto;
-    const users = await this.usersService.find(userName);
+    const users = await this.usersService.find({ userName });
     if (users.length) throw new BadRequestException('This user name is already used');
     const salt = randomBytes(8).toString('hex');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
@@ -31,7 +31,7 @@ export class AuthService {
 
   async signin(userDto: SignUserInDto) {
     const { userName, password } = userDto;
-    const [user] = await this.usersService.find(userName);
+    const [user] = await this.usersService.find({ userName });
     if (!user) throw new NotFoundException('User not found');
     const [storedHash, salt] = user.password.split('.');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
