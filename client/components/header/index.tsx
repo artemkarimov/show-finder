@@ -32,7 +32,11 @@ const Header: FunctionComponent = () => {
               </li>
             </>
           )}
-          {isAuthenticated && <li onClick={signoutHandler}>Sign out</li>}
+          {isAuthenticated && (
+            <li style={{ marginLeft: '10rem' }} onClick={signoutHandler}>
+              Sign out
+            </li>
+          )}
         </ul>
       </nav>
     </header>

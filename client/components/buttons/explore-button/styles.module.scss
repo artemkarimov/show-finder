@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+
+.button {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  background-color: $lightGrayColor;
+  border: 1px solid $lightGrayColor;
+  border-radius: 6px;
+  color: $dimGrayColor;
+  padding-top: -0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  height: 2.5rem;
+
+  &:hover,
+  &:active {
+    background-color: $veryLightGrayColor;
+    border-color: $veryLightGrayColor;
+    color: $whiteColor;
+  }
+
+  span:nth-child(1) {
+    margin-top: 0.6rem;
+  }
+
+  .icon {
+    margin-left: 0.4rem;
+    margin-top: 0.4rem;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
