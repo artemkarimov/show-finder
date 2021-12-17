@@ -1,8 +1,11 @@
 import type { NextPage, GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
-import { getMatchingShows, getMostSearchedShows } from '../../../api/api-helper';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import ShowDetails from '../../../components/show-details';
 import Show from '../../../common/interfaces/show';
+import { getUser } from '../../../store/slices/auth-slice';
+import { getMatchingShows, getMostSearchedShows } from '../../../api/api-helper';
 import { getSlugFromString, getStringFromSlug } from '../../../helpers/slug';
 
 interface Props {
@@ -10,7 +13,10 @@ interface Props {
 }
 
 const ShowPage: NextPage<Props> = ({ shows }) => {
-  console.log(shows);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
   return (
     <>
       <ShowDetails shows={shows} />

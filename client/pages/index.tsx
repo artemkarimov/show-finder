@@ -1,15 +1,22 @@
 import type { NextPage, GetStaticProps } from 'next';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import SearchBar from '../components/search-bar';
 import MostSearchedShows from '../components/most-searched-shows';
 import Show from '../common/interfaces/show';
 import { getMostSearchedShows } from '../api/api-helper';
+import { getUser } from '../store/slices/auth-slice';
 
 interface Props {
   mostSearchedShows: Show[];
 }
 
 const HomePage: NextPage<Props> = ({ mostSearchedShows }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
   return (
     <>
       <SearchBar />
