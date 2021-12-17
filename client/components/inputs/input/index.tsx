@@ -12,7 +12,7 @@ interface Props {
   hasSubmitted: boolean;
   error?: boolean;
   errorMessage?: string;
-  onChange?: () => Promise<boolean>;
+  onChange?: () => Promise<boolean | undefined>;
 }
 
 const Input: FunctionComponent<Props> = props => {
