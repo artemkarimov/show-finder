@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.heading {
+  text-align: center;
+}
+
+.error-message {
+  margin-top: 0;
+  color: $redColor;
+}
