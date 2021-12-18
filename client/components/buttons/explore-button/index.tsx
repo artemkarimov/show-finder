@@ -1,20 +1,25 @@
 import type { FunctionComponent } from 'react';
+import Link from 'next/link';
 
 import ArrowRightIcon from '../../icons/arrow-right-icon';
 import styles from './styles.module.scss';
 
 interface Props {
-  clickHandler: () => void;
+  link: string;
 }
 
-const ExploreButton: FunctionComponent<Props> = ({ clickHandler }) => {
+const ExploreButton: FunctionComponent<Props> = ({ link }) => {
   return (
-    <button className={styles.button} onClick={clickHandler}>
-      <span>Explore</span>
-      <span className={styles.icon}>
-        <ArrowRightIcon />
-      </span>
-    </button>
+    <Link href={link}>
+      <a target="_blank">
+        <button className={styles.button}>
+          <span>Explore</span>
+          <span className={styles.icon}>
+            <ArrowRightIcon />
+          </span>
+        </button>
+      </a>
+    </Link>
   );
 };
 
