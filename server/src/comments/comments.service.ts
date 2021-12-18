@@ -15,10 +15,10 @@ export class CommentsService {
   }
 
   async find(showId: number) {
-    const comments = await this.repository
-      .createQueryBuilder('comment')
-      .where(`"showId" = ${showId}`)
-      .getMany();
+    const comments = await this.repository.find({
+      relations: ['show', 'user'],
+      where: { show: showId },
+    });
     return comments;
   }
 }
