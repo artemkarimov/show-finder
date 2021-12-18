@@ -106,7 +106,7 @@ export const postComment = async (
   show: number,
   user: number
 ): Promise<Comment> => {
-  const response: AxiosResponse<Comment> = await axios.post(`${SERVER_HOST}/users/comments`, {
+  const response: AxiosResponse<Comment> = await axios.post(`${SERVER_HOST}/comments`, {
     content,
     show,
     user,
@@ -117,7 +117,7 @@ export const postComment = async (
 
 export const getComments = async (showId: number): Promise<Comment[]> => {
   const response: AxiosResponse<Comment[]> = await axios.get(
-    `${SERVER_HOST}/users/comments?show-id=${showId}`
+    `${SERVER_HOST}/comments?show-id=${showId}`
   );
   const comments = response.data;
   return comments;
