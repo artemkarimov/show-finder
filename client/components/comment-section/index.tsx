@@ -51,7 +51,7 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
           </button>
         </div>
       )}
-      {opened && (
+      {opened && !!comments.length && (
         <ul>
           {comments.map(comment => (
             <li key={comment.id}>
@@ -60,6 +60,7 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
           ))}
         </ul>
       )}
+      {opened && !comments.length && <p className={styles['no-comments']}>No comments yet</p>}
     </section>
   );
 };

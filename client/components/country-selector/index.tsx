@@ -15,7 +15,7 @@ const CountrySelector: FunctionComponent<Props> = ({ options, hasSubmitted, refe
   const [isChosen, setIsChosen] = useState<boolean>(false);
   const classNames = [styles.select, hasSubmitted && !isChosen ? styles.invalid : ''];
   const changeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    if (event.target.value === 'DEFAULT') setIsChosen(true);
+    if (event.target.value !== 'DEFAULT') setIsChosen(true);
     if (color) return;
     else setColor('#000000');
   };
