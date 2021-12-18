@@ -33,7 +33,7 @@ const Header: FunctionComponent = () => {
             </>
           )}
           {isAuthenticated && (
-            <li style={{ marginLeft: '10rem' }} onClick={signoutHandler}>
+            <li style={{ marginLeft: '9rem' }} onClick={signoutHandler}>
               Sign out
             </li>
           )}

@@ -17,6 +17,7 @@ import { getSlugFromString, getStringFromSlug } from '../../../../helpers/slug';
 import Card from '../../../../components/card';
 import getLogoPath from '../../../../helpers/logo-path';
 import styles from './styles.module.scss';
+import CommentSection from '../../../../components/comment-section';
 
 interface Props {
   show: Show;
@@ -62,6 +63,11 @@ const SubscriptionPlansPage: NextPage<Props> = ({ show, subscriptionPrices }) =>
           </li>
         ))}
       </ul>
+      {!!prices.length && currentUser && (
+        <div className={styles.comments}>
+          <CommentSection showId={show.id} userId={currentUser.id} />
+        </div>
+      )}
     </Card>
   );
 };
