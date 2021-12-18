@@ -12,6 +12,7 @@ interface Props {
   hasSubmitted: boolean;
   error?: boolean;
   errorMessage?: string;
+  onInput?: () => boolean;
   onChange?: () => Promise<boolean | undefined>;
 }
 
@@ -25,6 +26,7 @@ const Input: FunctionComponent<Props> = props => {
     hasSubmitted,
     error,
     errorMessage,
+    onInput,
     onChange,
   } = props;
   const [isTouched, setIsTouched] = useState<boolean>(false);
@@ -37,6 +39,7 @@ const Input: FunctionComponent<Props> = props => {
     if (!reference.current?.value) setIsEmpty(true);
     else setIsEmpty(false);
     if (onChange) (await onChange()) ? setIsValid(true) : setIsValid(false);
+    if (onInput) (onInput()) ? setIsValid(true) : setIsValid(false);
   };
 
   const blurHandler = async () => {
@@ -58,6 +61,7 @@ const Input: FunctionComponent<Props> = props => {
 
   if (hasSubmitted) checkIsEmpty();
   if ((error || errorMessage) && isValid) setIsValid(false);
+  console.log(errorMessage)
 
   return (
     <>
@@ -72,6 +76,7 @@ const Input: FunctionComponent<Props> = props => {
         ref={reference}
         onBlur={blurHandler}
         onChange={changeHandler}
+        onInput={onInput}
         autoComplete="off"
       />
       {isEmpty && <p className={styles['error-message']}>This field cannot be empty.</p>}
