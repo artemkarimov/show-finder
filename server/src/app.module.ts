@@ -8,6 +8,7 @@ import { CountriesModule } from './countries/countries.module';
 import { SubscriptionPlansModule } from './subscription-plans/subscription-plans.module';
 import { SubscriptionPricesModule } from './subscription-prices/subscription-prices.module';
 import { UsersModule } from './users/users.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   controllers: [AppController],
@@ -19,6 +20,7 @@ import { UsersModule } from './users/users.module';
     SubscriptionPlansModule,
     SubscriptionPricesModule,
     UsersModule,
+    CommentsModule,
   ],
 })
 export class AppModule {}
