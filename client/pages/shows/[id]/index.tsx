@@ -42,8 +42,10 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   const { params } = context;
   const pageId = (params && params.id)! as string;
   const showName = getStringFromSlug(pageId);
-  console.log(showName);
-  const shows = await getMatchingShows(showName);
+  const matchingShows = await getMatchingShows(showName);
+  const shows = matchingShows.filter(
+    show => show.title.toLocaleLowerCase() === showName.toLowerCase()
+  );
   return {
     props: { shows },
   };

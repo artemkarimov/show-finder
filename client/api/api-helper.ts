@@ -122,3 +122,12 @@ export const getComments = async (showId: number): Promise<Comment[]> => {
   const comments = response.data;
   return comments;
 };
+
+export const updateSearchCount = async (id: number): Promise<Show> => {
+  const response: AxiosResponse<Show> = await axios.post(
+    `${SERVER_HOST}/shows/update-search-count`,
+    { id }
+  );
+  const show = response.data;
+  return show;
+};

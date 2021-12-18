@@ -6,10 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import SearchInput from '../inputs/search-input';
 import Show from '../../common/interfaces/show';
-import { getMatchingShows } from '../../api/api-helper';
+import { getMatchingShows, updateSearchCount } from '../../api/api-helper';
 import getArrayUniqueByKey from '../../helpers/array-unique-by-key';
-import styles from './styles.module.scss';
 import { getSlugFromString } from '../../helpers/slug';
+import styles from './styles.module.scss';
 
 const SearchBar: FunctionComponent = () => {
   const [matchingShows, setMatchingShows] = useState<Show[]>([]);
@@ -45,6 +45,9 @@ const SearchBar: FunctionComponent = () => {
     setMatchingShows([]);
     if (noShowsFound) setNoShowsFound(false);
   };
+  const clickHandler = async (id: number) => {
+    await updateSearchCount(id);
+  };
   return (
     <>
       <div className={styles['search-input']}>
@@ -72,7 +75,7 @@ const SearchBar: FunctionComponent = () => {
           !noShowsFound &&
           matchingShows.map(value => (
             <Link href={`/shows/${getSlugFromString(value.title)}`}>
-              <a className={styles.item} key={value.id}>
+              <a className={styles.item} key={value.id} onClick={() => clickHandler(value.id)}>
                 <p>
                   {value.title}{' '}
                   <span>
