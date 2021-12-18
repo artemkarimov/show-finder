@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 
@@ -16,8 +17,9 @@ import SubscriptionPrice from '../../../../common/interfaces/subscription-price'
 import { getSlugFromString, getStringFromSlug } from '../../../../helpers/slug';
 import Card from '../../../../components/card';
 import getLogoPath from '../../../../helpers/logo-path';
-import styles from './styles.module.scss';
 import CommentSection from '../../../../components/comment-section';
+import StaticRoutes from '../../../../common/enums/static-routes';
+import styles from './styles.module.scss';
 
 interface Props {
   show: Show;
@@ -26,10 +28,14 @@ interface Props {
 
 const SubscriptionPlansPage: NextPage<Props> = ({ show, subscriptionPrices }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const [dispatched, setDispatched] = useState<boolean>(false);
   useEffect(() => {
     dispatch(getUser());
+    setDispatched(true);
   }, []);
   const currentUser = useSelector((state: State) => state.auth.currentUser);
+  if (dispatched && !currentUser) router.replace(StaticRoutes.HOME);
   const prices = subscriptionPrices.filter(value => value.country.id === currentUser?.countryId);
   return (
     <Card maxWidth="35rem">
@@ -64,7 +70,7 @@ const SubscriptionPlansPage: NextPage<Props> = ({ show, subscriptionPrices }) =>
         ))}
       </ul>
       {!!prices.length && currentUser && (
-        <div className={styles.comments}>
+        <div>
           <CommentSection showId={show.id} userId={currentUser.id} />
         </div>
       )}
