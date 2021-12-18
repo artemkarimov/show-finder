@@ -3,13 +3,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, getRepository, ILike } from 'typeorm';
 
 import { AddShowDto } from './dtos/add-show.dto';
+import { UpdateSearchCountDto } from './dtos/update-search-count.dto';
 import { Show } from './entities/show.entity';
 
 @Injectable()
 export class ShowsService {
-  constructor(
-    @InjectRepository(Show) private readonly repository: Repository<Show>,
-  ) {}
+  constructor(@InjectRepository(Show) private readonly repository: Repository<Show>) {}
 
   async create(showDtos: AddShowDto[]) {
     for (const showDto of showDtos) {
@@ -40,5 +39,21 @@ export class ShowsService {
       .limit(limit)
       .getMany();
     return mostSearchedShows;
+  }
+
+  async updateSearchCount(dto: UpdateSearchCountDto) {
+    const { id } = dto;
+    const show = await this.repository.findOne(id);
+    // const updateResult = await this.repository
+    //   .createQueryBuilder()
+    //   .update<Show>(Show, { searchCount: show.searchCount + 1 })
+    //   .where({ id })
+    //   .returning('*')
+    //   .execute();
+    const updatedShow: Show = await this.repository.save({
+      ...show,
+      searchCount: show.searchCount + 1,
+    });
+    return updatedShow;
   }
 }

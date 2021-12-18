@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 
 import { ShowsService } from './shows.service';
 import { AddShowDto } from './dtos/add-show.dto';
+import { UpdateSearchCountDto } from './dtos/update-search-count.dto';
 
 @Controller('shows')
 export class ShowsController {
@@ -28,5 +29,11 @@ export class ShowsController {
   async getMostSearchedShows(@Query('limit') limit: string) {
     const mostSearchedShows = await this.service.findMostSearched(+limit);
     return mostSearchedShows;
+  }
+
+  @Post('update-search-count')
+  async updateSearchCount(@Body() body: UpdateSearchCountDto) {
+    const result = await this.service.updateSearchCount(body);
+    return result;
   }
 }
