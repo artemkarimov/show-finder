@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import Show from '../common/interfaces/show';
 import SubscriptionPrice from '../common/interfaces/subscription-price';
 import User from '../common/interfaces/user';
+import Comment from '../common/interfaces/comment';
 
 const SERVER_HOST = process.env.NEXT_PUBLIC_SERVER_HOST;
 
@@ -98,4 +99,26 @@ export const getUsersByUserName = async (input: string): Promise<User[]> => {
   );
   const users = response.data;
   return users;
+};
+
+export const postComment = async (
+  content: string,
+  show: number,
+  user: number
+): Promise<Comment> => {
+  const response: AxiosResponse<Comment> = await axios.post(`${SERVER_HOST}/users/comments`, {
+    content,
+    show,
+    user,
+  });
+  const comment = response.data;
+  return comment;
+};
+
+export const getComments = async (showId: number): Promise<Comment[]> => {
+  const response: AxiosResponse<Comment[]> = await axios.get(
+    `${SERVER_HOST}/users/comments?show-id=${showId}`
+  );
+  const comments = response.data;
+  return comments;
 };
