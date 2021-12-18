@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { StreamingService } from 'src/streaming-services/entities/streaming-service.entity';
 import { Country } from 'src/countries/entities/country.entity';
+import { Comment } from 'src/comments/entities/comment.entity';
 import { ShowType } from '../types/show-type.type';
 
 @Entity()
@@ -47,4 +48,7 @@ export class Show {
 
   @ManyToOne(() => Country, country => country.shows)
   country: Country;
+
+  @OneToMany(() => Comment, comment => comment.show)
+  comments: Comment[];
 }

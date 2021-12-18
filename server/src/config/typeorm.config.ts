@@ -6,6 +6,7 @@ import { Country } from 'src/countries/entities/country.entity';
 import { SubscriptionPlan } from 'src/subscription-plans/entities/subscription-plan.entity';
 import { SubscriptionPrice } from 'src/subscription-prices/entities/subscription-price.entity';
 import { User } from 'src/users/entities/user.entity';
+import { Comment } from 'src/comments/entities/comment.entity';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -14,13 +15,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   username: 'postgres',
   password: 'root',
   database: 'showfinder',
-  entities: [
-    Show,
-    StreamingService,
-    Country,
-    SubscriptionPlan,
-    SubscriptionPrice,
-    User,
-  ],
+  entities: [Show, StreamingService, Country, SubscriptionPlan, SubscriptionPrice, User, Comment],
   synchronize: true,
 };

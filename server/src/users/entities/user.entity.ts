@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
 import { Country } from 'src/countries/entities/country.entity';
+import { Comment } from 'src/comments/entities/comment.entity';
 
 @Entity()
 export class User {
@@ -23,6 +24,9 @@ export class User {
 
   @ManyToOne(() => Country, country => country.users)
   country: Country;
+
+  @OneToMany(() => Comment, comment => comment.user)
+  comments: Comment[];
 
   @Column()
   countryId: number;
