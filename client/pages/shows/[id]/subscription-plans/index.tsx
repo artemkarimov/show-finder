@@ -99,10 +99,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params?.id as string;
   const showName = getStringFromSlug(slug);
-  const shows = await getMatchingShows(showName);
-  console.log(shows[0]);
+  const matchingShows  = await getMatchingShows(showName);
+  const shows = matchingShows.filter(show => show.title.toLowerCase() === showName.toLowerCase());
   const streamingServices = shows.map(show => show.streamingService.id);
-  console.log({ streamingServices });
   const allSubscriptionPrices = await getAllSubscriptionPrices();
   const subscriptionPrices = allSubscriptionPrices.filter(value =>
     streamingServices.includes(value.streamingService.id)
