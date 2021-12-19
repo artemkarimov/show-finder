@@ -44,12 +44,6 @@ export class ShowsService {
   async updateSearchCount(dto: UpdateSearchCountDto) {
     const { id } = dto;
     const show = await this.repository.findOne(id);
-    // const updateResult = await this.repository
-    //   .createQueryBuilder()
-    //   .update<Show>(Show, { searchCount: show.searchCount + 1 })
-    //   .where({ id })
-    //   .returning('*')
-    //   .execute();
     const updatedShow: Show = await this.repository.save({
       ...show,
       searchCount: show.searchCount + 1,
