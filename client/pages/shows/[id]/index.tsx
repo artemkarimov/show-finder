@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import { useEffect } from 'react';
+import Head from 'next/head';
 import { useDispatch } from 'react-redux';
 
 import ShowDetails from '../../../components/show-details';
@@ -17,8 +18,12 @@ const ShowPage: NextPage<Props> = ({ shows }) => {
   useEffect(() => {
     dispatch(getUser());
   }, []);
+  const showTitle = shows[0].title;
   return (
     <>
+      <Head>
+        <title>ShowFinder - {showTitle}</title>
+      </Head>
       <ShowDetails shows={shows} />
     </>
   );

@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
@@ -40,6 +41,9 @@ const SubscriptionPlansPage: NextPage<Props> = ({ show, subscriptionPrices }) =>
   const prices = subscriptionPrices.filter(value => value.country.id === currentUser?.countryId);
   return (
     <>
+      <Head>
+        <title>ShowFinder - {show.title} | Subscription Plans</title>
+      </Head>
       <SearchBar />
       <Card maxWidth="35rem">
         {!prices.length && (
