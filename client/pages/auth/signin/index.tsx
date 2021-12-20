@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState, useRef, FormEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -65,35 +66,40 @@ const SigninPage: NextPage<Props> = ({ previousPageUrl }) => {
     } else setHasSubmitted(true);
   };
   return (
-    <Card>
-      <h1 className={styles.heading}>Sign In</h1>
-      <form onSubmit={submitHandler}>
-        <Input
-          id="login"
-          type="text"
-          label="Username"
-          placeholder="Enter username"
-          reference={userNameRef}
-          errorMessage={userNameError}
-          hasSubmitted={hasSubmitted}
-          onInput={userNameInputHandler}
-        />
-        <Input
-          id="password"
-          type="password"
-          label="Password"
-          placeholder="Enter password"
-          reference={passwordRef}
-          hasSubmitted={hasSubmitted}
-          errorMessage={passwordError}
-          onInput={passwordInputHandler}
-        />
-        <Button flat={false}>Sign in</Button>
-        <Button flat={true} link={StaticRoutes.SIGNUP}>
-          Dont have an account? Sign up instead
-        </Button>
-      </form>
-    </Card>
+    <>
+    <Head>
+      <title>ShowFinder - Sign In</title>
+    </Head>
+      <Card>
+        <h1 className={styles.heading}>Sign In</h1>
+        <form onSubmit={submitHandler}>
+          <Input
+            id="login"
+            type="text"
+            label="Username"
+            placeholder="Enter username"
+            reference={userNameRef}
+            errorMessage={userNameError}
+            hasSubmitted={hasSubmitted}
+            onInput={userNameInputHandler}
+          />
+          <Input
+            id="password"
+            type="password"
+            label="Password"
+            placeholder="Enter password"
+            reference={passwordRef}
+            hasSubmitted={hasSubmitted}
+            errorMessage={passwordError}
+            onInput={passwordInputHandler}
+          />
+          <Button flat={false}>Sign in</Button>
+          <Button flat={true} link={StaticRoutes.SIGNUP}>
+            Dont have an account? Sign up instead
+          </Button>
+        </form>
+      </Card>
+    </>
   );
 };
 

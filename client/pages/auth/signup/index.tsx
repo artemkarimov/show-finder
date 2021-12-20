@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSideProps } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState, useRef, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
@@ -116,61 +117,66 @@ const SignUpPage: NextPage<Props> = ({ currentUser, subscriptionPrices }) => {
     }
   };
   return (
-    <Card>
-      <h1 className={styles.heading}>Sign Up</h1>
-      <form onSubmit={submitHandler}>
-        <Input
-          id="firstName"
-          type="text"
-          label="First Name"
-          placeholder="Enter first name"
-          reference={firstNameRef}
-          hasSubmitted={hasSubmitted}
-        />
-        <Input
-          id="lastName"
-          type="text"
-          label="Last Name"
-          placeholder="Enter last name"
-          reference={lastNameRef}
-          hasSubmitted={hasSubmitted}
-        />
-        <CountrySelector options={countries} hasSubmitted={hasSubmitted} reference={countryRef} />
-        <Input
-          id="userName"
-          type="text"
-          label="UserName"
-          placeholder="Enter user name"
-          reference={userNameRef}
-          onChange={userNameChangeHandler}
-          hasSubmitted={hasSubmitted}
-          errorMessage={userNameError}
-        />
-        <Input
-          id="password"
-          type="password"
-          label="Password"
-          placeholder="Enter password"
-          reference={passwordRef}
-          hasSubmitted={hasSubmitted}
-          error={!!passwordConfirmError}
-          errorMessage={passwordError}
-        />
-        <Input
-          id="passwordConfirm"
-          type="password"
-          label="Confirm Password"
-          placeholder="Confirm password"
-          reference={confirmPasswordRef}
-          hasSubmitted={hasSubmitted}
-          errorMessage={passwordConfirmError}
-        />
-        <Button flat={false}>Register</Button>
-        <Button flat={true} link={StaticRoutes.SIGNIN}>
-          Already have an account? Sign in instead
-        </Button>
-      </form>
-    </Card>
+    <>
+      <Head>
+        <title>ShowFinder - Sign Up</title>
+      </Head>
+      <Card>
+        <h1 className={styles.heading}>Sign Up</h1>
+        <form onSubmit={submitHandler}>
+          <Input
+            id="firstName"
+            type="text"
+            label="First Name"
+            placeholder="Enter first name"
+            reference={firstNameRef}
+            hasSubmitted={hasSubmitted}
+          />
+          <Input
+            id="lastName"
+            type="text"
+            label="Last Name"
+            placeholder="Enter last name"
+            reference={lastNameRef}
+            hasSubmitted={hasSubmitted}
+          />
+          <CountrySelector options={countries} hasSubmitted={hasSubmitted} reference={countryRef} />
+          <Input
+            id="userName"
+            type="text"
+            label="UserName"
+            placeholder="Enter user name"
+            reference={userNameRef}
+            onChange={userNameChangeHandler}
+            hasSubmitted={hasSubmitted}
+            errorMessage={userNameError}
+          />
+          <Input
+            id="password"
+            type="password"
+            label="Password"
+            placeholder="Enter password"
+            reference={passwordRef}
+            hasSubmitted={hasSubmitted}
+            error={!!passwordConfirmError}
+            errorMessage={passwordError}
+          />
+          <Input
+            id="passwordConfirm"
+            type="password"
+            label="Confirm Password"
+            placeholder="Confirm password"
+            reference={confirmPasswordRef}
+            hasSubmitted={hasSubmitted}
+            errorMessage={passwordConfirmError}
+          />
+          <Button flat={false}>Register</Button>
+          <Button flat={true} link={StaticRoutes.SIGNIN}>
+            Already have an account? Sign in instead
+          </Button>
+        </form>
+      </Card>
+    </>
   );
 };
 

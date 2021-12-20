@@ -1,4 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -19,6 +20,9 @@ const HomePage: NextPage<Props> = ({ mostSearchedShows }) => {
   }, []);
   return (
     <>
+      <Head>
+        <title>ShowFinder</title>
+      </Head>
       <SearchBar />
       <MostSearchedShows shows={mostSearchedShows} />
     </>
