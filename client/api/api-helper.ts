@@ -123,6 +123,10 @@ export const getComments = async (showId: number): Promise<Comment[]> => {
   return comments;
 };
 
+export const deleteComment = async (commentId: number): Promise<void> => {
+  await axios.delete(`${SERVER_HOST}/comments?comment-id=${commentId}`);
+};
+
 export const updateSearchCount = async (id: number): Promise<Show> => {
   const response: AxiosResponse<Show> = await axios.post(
     `${SERVER_HOST}/shows/update-search-count`,

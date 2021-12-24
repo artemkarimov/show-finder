@@ -16,20 +16,22 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
   const [opened, setOpened] = useState<boolean>(false);
   const [comments, setComments] = useState<Comment[]>([]);
   const commentRef = useRef<HTMLInputElement>(null);
+  const getShowComments = async () => {
+    const showComments = await getComments(showId);
+    setComments(showComments);
+  };
   const clickHandler = async () => {
     if (opened) setOpened(false);
     else {
       setOpened(true);
-      const showComments = await getComments(showId);
-      setComments(showComments);
+      await getShowComments();
     }
   };
   const createCommentHandler = async () => {
     const enteredComment = commentRef.current?.value;
     if (!enteredComment) return;
     await postComment(enteredComment, showId, userId);
-    const showComments = await getComments(showId);
-    setComments(showComments);
+    await getShowComments();
   };
   return (
     <section className={styles.section}>
@@ -55,7 +57,12 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
         <ul>
           {comments.map(comment => (
             <li key={comment.id}>
-              <CommentItem user={comment.user.userName} text={comment.content} />
+              <CommentItem
+                id={comment.id}
+                user={comment.user.userName}
+                text={comment.content}
+                onDelete={getShowComments}
+              />
             </li>
           ))}
         </ul>
