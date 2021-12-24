@@ -8,8 +8,19 @@
   background-color: $lightGrayColor;
   margin-bottom: 1rem;
 
+  div {
+    display: flex;
+
+    .delete-icon {
+      margin-left: 11.5rem;
+      display: none;
+      cursor: pointer;
+    }
+  }
+
   p {
     margin-left: 0.5rem;
+    margin-top: 0;
 
     span {
       font-weight: 500;
@@ -18,5 +29,11 @@
 
   .text {
     padding-bottom: 0.8rem;
+  }
+
+  &:hover {
+    .delete-icon {
+      display: block;
+    }
   }
 }
