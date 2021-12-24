@@ -1,6 +1,9 @@
 @import '../../styles/variables.scss';
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
   width: 100%;
   display: flex;
   padding: 0 10%;
