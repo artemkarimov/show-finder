@@ -1,5 +1,5 @@
-import type { FunctionComponent } from 'react';
-import { useState, useRef } from 'react';
+import type { ChangeEvent, FunctionComponent } from 'react';
+import { useState } from 'react';
 
 import CommentItem from '../comment-item';
 import Button from '../buttons/button';
@@ -15,7 +15,7 @@ interface Props {
 const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
   const [opened, setOpened] = useState<boolean>(false);
   const [comments, setComments] = useState<Comment[]>([]);
-  const commentRef = useRef<HTMLInputElement>(null);
+  const [commentText, setCommentText] = useState<string>('');
   const getShowComments = async () => {
     const showComments = await getComments(showId);
     setComments(showComments);
@@ -27,11 +27,14 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
       await getShowComments();
     }
   };
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setCommentText(event.target.value);
+  };
   const createCommentHandler = async () => {
-    const enteredComment = commentRef.current?.value;
-    if (!enteredComment) return;
-    await postComment(enteredComment, showId, userId);
+    if (!commentText) return;
+    await postComment(commentText, showId, userId);
     await getShowComments();
+    setCommentText('');
   };
   return (
     <section className={styles.section}>
@@ -46,7 +49,8 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
             className={styles.input}
             type="text"
             placeholder="Leave comment"
-            ref={commentRef}
+            value={commentText}
+            onChange={changeHandler}
           />
           <button className={styles.button} onClick={createCommentHandler}>
             Post
