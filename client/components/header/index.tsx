@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { State } from '../../store';
 import StaticRoutes from '../../common/enums/static-routes';
@@ -10,6 +11,7 @@ import { authActions } from '../../store/slices/auth-slice';
 
 const Header: FunctionComponent = () => {
   const isAuthenticated = useSelector((state: State) => state.auth.isAuthenticated);
+  const currentUser = useSelector((state: State) => state.auth.currentUser);
   const dispatch = useDispatch();
   const signoutHandler = async () => {
     await signUserOut();
@@ -33,9 +35,15 @@ const Header: FunctionComponent = () => {
             </>
           )}
           {isAuthenticated && (
-            <li style={{ marginLeft: '9rem' }} onClick={signoutHandler}>
-              Sign out
-            </li>
+            <>
+              <li className={styles['current-user']}>
+                <PersonIcon htmlColor="white" />
+                <p>{currentUser?.userName}</p>
+              </li>
+              <li style={{ marginLeft: '3rem' }} onClick={signoutHandler}>
+                Sign out
+              </li>
+            </>
           )}
         </ul>
       </nav>

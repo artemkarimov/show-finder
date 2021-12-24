@@ -25,6 +25,23 @@
           text-decoration: underline;
         }
       }
+
+      .current-user {
+        display: flex;
+        cursor: default;
+        margin-left: -4rem;
+        margin-top: 0.2rem;
+
+        p {
+          margin-top: -0.15rem;
+          margin-left: 0.5rem;
+          color: $whiteColor;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }
