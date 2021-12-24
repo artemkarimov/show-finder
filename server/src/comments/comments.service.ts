@@ -21,4 +21,8 @@ export class CommentsService {
     });
     return comments;
   }
+
+  async delete(commentId: number) {
+    return await this.repository.delete({ id: commentId });
+  }
 }
