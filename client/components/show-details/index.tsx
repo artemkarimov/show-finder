@@ -5,16 +5,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 
-import SearchBar from '../search-bar';
-import ShowHeader from '../show-header';
-import LoadingSpinner from '../loading-spinner';
-import Button from '../buttons/button';
-import Show from '../../common/interfaces/show';
-import StaticRoutes from '../../common/enums/static-routes';
-import { State } from '../../store';
-import prepareShowDetails from '../../helpers/show-details';
-import getLogoPath from '../../helpers/logo-path';
-import capitalise from '../../helpers/capitaliser';
+import SearchBar from '@components/search-bar';
+import ShowHeader from '@components/show-header';
+import LoadingSpinner from '@components/loading-spinner';
+import Button from '@components/buttons/button';
+import Show from '@common/interfaces/show';
+import StaticRoutes from '@common/enums/static-routes';
+import { State } from '@store';
+import prepareShowDetails from '@helpers/show-details';
+import getLogoPath from '@helpers/logo-path';
+import capitalise from '@helpers/capitaliser';
 import styles from './styles.module.scss';
 
 interface Props {

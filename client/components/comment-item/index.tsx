@@ -2,10 +2,10 @@ import { FunctionComponent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ClearIcon from '@mui/icons-material/Clear';
 
-import Dialog from '../dialog';
-import Button from '../buttons/button';
-import { State } from '../../store';
-import { deleteComment } from '../../api/api-helper';
+import Dialog from '@components/dialog';
+import Button from '@components/buttons/button';
+import { State } from '@store';
+import { deleteComment } from '@api/api-helper';
 import styles from './styles.module.scss';
 
 interface Props {

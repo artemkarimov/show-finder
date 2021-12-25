@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-import Show from '../common/interfaces/show';
-import SubscriptionPrice from '../common/interfaces/subscription-price';
-import User from '../common/interfaces/user';
-import Comment from '../common/interfaces/comment';
+import Show from '@common/interfaces/show';
+import SubscriptionPrice from '@common/interfaces/subscription-price';
+import User from '@common/interfaces/user';
+import Comment from '@common/interfaces/comment';
 
 const SERVER_HOST = process.env.NEXT_PUBLIC_SERVER_HOST;
 

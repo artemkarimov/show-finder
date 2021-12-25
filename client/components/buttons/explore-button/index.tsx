@@ -1,7 +1,7 @@
 import type { FunctionComponent } from 'react';
 import Link from 'next/link';
 
-import ArrowRightIcon from '../../icons/arrow-right-icon';
+import ArrowRightIcon from '@components/icons/arrow-right-icon';
 import styles from './styles.module.scss';
 
 interface Props {

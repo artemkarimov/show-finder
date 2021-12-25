@@ -2,10 +2,10 @@ import { FunctionComponent, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ShowType from '../../common/types/show-type';
-import loadImage from '../../helpers/image-loader';
-import capitalise from '../../helpers/capitaliser';
-import { FALLBACK_IMAGE_PATH } from '../../constants';
+import ShowType from '@common/types/show-type';
+import loadImage from '@helpers/image-loader';
+import capitalise from '@helpers/capitaliser';
+import { FALLBACK_IMAGE_PATH } from '@constants';
 import styles from './styles.module.scss';
 
 export interface Props {

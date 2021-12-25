@@ -5,22 +5,18 @@ import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 
-import { State } from '../../../../store';
-import { getUser } from '../../../../store/slices/auth-slice';
-import ExploreButton from '../../../../components/buttons/explore-button';
-import SearchBar from '../../../../components/search-bar';
-import Show from '../../../../common/interfaces/show';
-import {
-  getAllSubscriptionPrices,
-  getMatchingShows,
-  getMostSearchedShows,
-} from '../../../../api/api-helper';
-import SubscriptionPrice from '../../../../common/interfaces/subscription-price';
-import { getSlugFromString, getStringFromSlug } from '../../../../helpers/slug';
-import Card from '../../../../components/card';
-import getLogoPath from '../../../../helpers/logo-path';
-import CommentSection from '../../../../components/comment-section';
-import StaticRoutes from '../../../../common/enums/static-routes';
+import { State } from '@store';
+import { getUser } from '@store/slices/auth-slice';
+import ExploreButton from '@components/buttons/explore-button';
+import SearchBar from '@components/search-bar';
+import Show from '@common/interfaces/show';
+import { getAllSubscriptionPrices, getMatchingShows, getMostSearchedShows } from '@api/api-helper';
+import SubscriptionPrice from '@common/interfaces/subscription-price';
+import { getSlugFromString, getStringFromSlug } from '@helpers/slug';
+import Card from '@components/card';
+import getLogoPath from '@helpers/logo-path';
+import CommentSection from '@components/comment-section';
+import StaticRoutes from '@common/enums/static-routes';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -103,7 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params?.id as string;
   const showName = getStringFromSlug(slug);
-  const matchingShows  = await getMatchingShows(showName);
+  const matchingShows = await getMatchingShows(showName);
   const shows = matchingShows.filter(show => show.title.toLowerCase() === showName.toLowerCase());
   const streamingServices = shows.map(show => show.streamingService.id);
   const allSubscriptionPrices = await getAllSubscriptionPrices();

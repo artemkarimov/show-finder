@@ -1,7 +1,6 @@
 import type { FunctionComponent } from 'react';
 
-import ShowItem from '../show-item';
-import { Props as ShowData } from '../show-item';
+import ShowItem, { Props as ShowData } from '@components/show-item';
 import styles from './styles.module.scss';
 
 interface Props {

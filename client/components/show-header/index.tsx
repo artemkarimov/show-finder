@@ -2,9 +2,9 @@ import type { FunctionComponent } from 'react';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-import LoadingSpinner from '../loading-spinner';
-import loadImage from '../../helpers/image-loader';
-import { FALLBACK_IMAGE_PATH } from '../../constants';
+import LoadingSpinner from '@components/loading-spinner';
+import loadImage from '@helpers/image-loader';
+import { FALLBACK_IMAGE_PATH } from '@constants';
 import styles from './styles.module.scss';
 
 interface Props {

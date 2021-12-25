@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PersonIcon from '@mui/icons-material/Person';
 
-import { State } from '../../store';
-import Dialog from '../dialog';
-import Button from '../buttons/button';
-import StaticRoutes from '../../common/enums/static-routes';
-import { signUserOut } from '../../api/api-helper';
+import { State } from '@store';
+import { authActions } from '@store/slices/auth-slice';
+import Dialog from '@components/dialog';
+import Button from '@components/buttons/button';
+import StaticRoutes from '@common/enums/static-routes';
+import { signUserOut } from '@api/api-helper';
 import styles from './styles.module.scss';
-import { authActions } from '../../store/slices/auth-slice';
 
 const Header: FunctionComponent = () => {
   const [confirmDialogOpened, setConfirmDialogOpened] = useState<boolean>(false);

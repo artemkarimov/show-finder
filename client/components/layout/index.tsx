@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 
-import Header from '../header';
+import Header from '@components/header';
 
 const Layout: FunctionComponent = ({ children }) => {
   return (

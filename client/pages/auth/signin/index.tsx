@@ -5,14 +5,14 @@ import { useState, useRef, FormEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AxiosError } from 'axios';
 
-import { State } from '../../../store';
-import { authActions } from '../../../store/slices/auth-slice';
-import Card from '../../../components/card';
-import Button from '../../../components/buttons/button';
-import Input from '../../../components/inputs/input';
-import StaticRoutes from '../../../common/enums/static-routes';
-import { signUserIn } from '../../../api/api-helper';
-import { getUser } from '../../../store/slices/auth-slice';
+import { State } from '@store';
+import { authActions } from '@store/slices/auth-slice';
+import Card from '@components/card';
+import Button from '@components/buttons/button';
+import Input from '@components/inputs/input';
+import StaticRoutes from '@common/enums/static-routes';
+import { signUserIn } from '@api/api-helper';
+import { getUser } from '@store/slices/auth-slice';
 import styles from '../styles.module.scss';
 
 interface Props {

@@ -1,7 +1,7 @@
 import type { FunctionComponent, RefObject, ChangeEvent } from 'react';
 import { useState } from 'react';
 
-import Country from '../../common/interfaces/country';
+import Country from '@common/interfaces/country';
 import styles from './styles.module.scss';
 
 interface Props {

@@ -1,4 +1,4 @@
-import Show from '../common/interfaces/show';
+import Show from '@common/interfaces/show';
 
 type Tuple = [string, string | number];
 

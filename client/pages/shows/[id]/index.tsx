@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { useDispatch } from 'react-redux';
 
-import ShowDetails from '../../../components/show-details';
-import Show from '../../../common/interfaces/show';
-import { getUser } from '../../../store/slices/auth-slice';
-import { getMatchingShows, getMostSearchedShows } from '../../../api/api-helper';
-import { getSlugFromString, getStringFromSlug } from '../../../helpers/slug';
+import ShowDetails from '@components/show-details';
+import Show from '@common/interfaces/show';
+import { getUser } from '@store/slices/auth-slice';
+import { getMatchingShows, getMostSearchedShows } from '@api/api-helper';
+import { getSlugFromString, getStringFromSlug } from '@helpers/slug';
 
 interface Props {
   shows: Show[];

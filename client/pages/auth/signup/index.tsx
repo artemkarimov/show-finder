@@ -4,22 +4,22 @@ import { useRouter } from 'next/router';
 import { useState, useRef, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 
-import SubscriptionPrice from '../../../common/interfaces/subscription-price';
-import Card from '../../../components/card';
-import Button from '../../../components/buttons/button';
-import Input from '../../../components/inputs/input';
-import CountrySelector from '../../../components/country-selector';
-import { authActions } from '../../../store/slices/auth-slice';
-import StaticRoutes from '../../../common/enums/static-routes';
-import validatePasswords from '../../../helpers/password-validator';
+import SubscriptionPrice from '@common/interfaces/subscription-price';
+import Card from '@components/card';
+import Button from '@components/buttons/button';
+import Input from '@components/inputs/input';
+import CountrySelector from '@components/country-selector';
+import { authActions } from '@store/slices/auth-slice';
+import StaticRoutes from '@common/enums/static-routes';
+import validatePasswords from '@helpers/password-validator';
 import {
   signUserUp,
   getAllSubscriptionPrices,
   getCurrentUser,
   getUsersByUserName,
-} from '../../../api/api-helper';
-import User from '../../../common/interfaces/user';
-import getArrayUniqueByKey from '../../../helpers/array-unique-by-key';
+} from '@api/api-helper';
+import User from '@common/interfaces/user';
+import getArrayUniqueByKey from '@helpers/array-unique-by-key';
 import styles from '../styles.module.scss';
 
 interface Props {

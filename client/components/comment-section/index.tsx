@@ -1,11 +1,11 @@
 import type { ChangeEvent, FunctionComponent } from 'react';
 import { useState } from 'react';
 
-import CommentItem from '../comment-item';
-import Button from '../buttons/button';
-import { getComments, postComment } from '../../api/api-helper';
+import CommentItem from '@components/comment-item';
+import Button from '@components/buttons/button';
+import { getComments, postComment } from '@api/api-helper';
+import Comment from '@common/interfaces/comment';
 import styles from './styles.module.scss';
-import Comment from '../../common/interfaces/comment';
 
 interface Props {
   showId: number;

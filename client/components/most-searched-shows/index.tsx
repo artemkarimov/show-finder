@@ -1,9 +1,9 @@
 import type { FunctionComponent } from 'react';
 
-import ShowsGrid from '../shows-grid';
-import Show from '../../common/interfaces/show';
-import { getSlugFromString } from '../../helpers/slug';
-import { FALLBACK_IMAGE_PATH } from '../../constants';
+import ShowsGrid from '@components/shows-grid';
+import Show from '@common/interfaces/show';
+import { getSlugFromString } from '@helpers/slug';
+import { FALLBACK_IMAGE_PATH } from '@constants';
 import styles from './styles.module.scss';
 
 interface Props {

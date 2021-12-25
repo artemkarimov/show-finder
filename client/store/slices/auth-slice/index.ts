@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import User from '../../../common/interfaces/user';
-import { getCurrentUser } from '../../../api/api-helper';
+import User from '@common/interfaces/user';
+import { getCurrentUser } from '@api/api-helper';
 
 export interface AuthState {
   currentUser: User | null;

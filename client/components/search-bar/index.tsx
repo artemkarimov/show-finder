@@ -4,11 +4,11 @@ import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-import SearchInput from '../inputs/search-input';
-import Show from '../../common/interfaces/show';
-import { getMatchingShows, updateSearchCount } from '../../api/api-helper';
-import getArrayUniqueByKey from '../../helpers/array-unique-by-key';
-import { getSlugFromString } from '../../helpers/slug';
+import SearchInput from '@components/inputs/search-input';
+import Show from '@common/interfaces/show';
+import { getMatchingShows, updateSearchCount } from '@api/api-helper';
+import getArrayUniqueByKey from '@helpers/array-unique-by-key';
+import { getSlugFromString } from '@helpers/slug';
 import styles from './styles.module.scss';
 
 const SearchBar: FunctionComponent = () => {
