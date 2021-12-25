@@ -14,7 +14,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@common/*": ["common/*"],
+      "@components/*": ["components/*"],
+      "@constants": ["constants/index"],
+      "@helpers/*": ["helpers/*"],
+      "@store": ["store/index"],
+      "@store/*": ["store/*"],
+      "@styles/*": ["styles/*"],
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
