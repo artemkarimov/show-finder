@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+
+.dialog {
+  position: fixed;
+  top: 5.5rem;
+  left: 37rem;
+  width: 20rem;
+  z-index: 100;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  header {
+    background-color: $neroColor;
+    color: $whiteColor;
+    width: 100%;
+    padding: 1rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  section {
+    margin-top: -1rem;
+    padding: 1rem;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
