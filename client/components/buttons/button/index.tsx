@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 interface Props {
   flat: boolean;
   link?: string;
-  clickHandler?: () => void;
+  clickHandler?: () => void | Promise<void>;
 }
 
 const Button: FunctionComponent<Props> = ({ flat, link, clickHandler, children }) => {
