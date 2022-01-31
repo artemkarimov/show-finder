@@ -64,28 +64,31 @@ const SearchBar: FunctionComponent = () => {
           )}
         </div>
       </div>
-      <div
-        className={styles['search-result']}
-        style={{
-          display: matchingShows.length || noShowsFound ? 'block' : 'none',
-          height: `${resultCardHeight}px`,
-        }}
-      >
-        {!!matchingShows.length &&
-          !noShowsFound &&
-          matchingShows.map(value => (
-            <Link href={`/shows/${getSlugFromString(value.title)}`}>
-              <a className={styles.item} key={value.id} onClick={() => clickHandler(value.id)}>
-                <p>
-                  {value.title}{' '}
-                  <span>
-                    ({value.type}, {value.type === 'film' ? value.releaseYear : value.releaseYears})
-                  </span>
-                </p>
-              </a>
-            </Link>
-          ))}
-        {noShowsFound && <p className={styles['not-found']}>No Shows Found</p>}
+      <div className={styles['result-container']}>
+        <div
+          className={styles['search-result']}
+          style={{
+            display: matchingShows.length || noShowsFound ? 'block' : 'none',
+            height: `${resultCardHeight}px`,
+          }}
+        >
+          {!!matchingShows.length &&
+            !noShowsFound &&
+            matchingShows.map(value => (
+              <Link href={`/shows/${getSlugFromString(value.title)}`}>
+                <a className={styles.item} key={value.id} onClick={() => clickHandler(value.id)}>
+                  <p>
+                    {value.title}{' '}
+                    <span>
+                      ({value.type},{' '}
+                      {value.type === 'film' ? value.releaseYear : value.releaseYears})
+                    </span>
+                  </p>
+                </a>
+              </Link>
+            ))}
+          {noShowsFound && <p className={styles['not-found']}>No Shows Found</p>}
+        </div>
       </div>
     </>
   );
