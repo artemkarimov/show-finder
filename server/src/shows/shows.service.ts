@@ -27,7 +27,7 @@ export class ShowsService {
   async findMatching(input: string) {
     const matchingShows = await this.repository.find({
       relations: ['streamingService', 'country'],
-      where: { title: ILike(`${input}%`) },
+      where: { title: ILike(`%${input}%`) },
     });
     return matchingShows;
   }
