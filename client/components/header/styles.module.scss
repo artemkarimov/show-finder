@@ -1,28 +1,34 @@
-@import '../../styles/variables.scss';
+@import '@styles/variables.scss';
+@import '@styles/mixins.scss';
 
 .header {
   position: sticky;
   top: 0;
   z-index: 99;
-  width: 100%;
   display: flex;
-  padding: 0 10%;
-  height: 5rem;
+  align-items: center;
+  padding: 0 10rem;
+  height: 8rem;
   background-color: $neroColor;
 
-  nav {
-    margin-left: 50rem;
-    margin-top: 0.5rem;
+  .logo {
+    font-size: 2.88rem;
+    color: $whiteColor;
+    flex: 1;
+  }
 
+  nav {
     ul {
       list-style: none;
       display: flex;
 
       li {
-        margin-left: 2rem;
-        font-size: 1.2rem;
+        font-size: 1.92rem;
         color: $grayColor;
-        cursor: pointer;
+
+        &:not(:last-of-type) {
+          margin-right: 1.7rem;
+        }
 
         &:hover {
           text-decoration: underline;
@@ -32,11 +38,14 @@
       .current-user {
         display: flex;
         cursor: default;
-        margin-left: -4rem;
-        margin-top: 0.2rem;
+        margin-left: -1rem;
+        margin-right: -2rem;
+
+        .icon {
+          margin-top: 0.4rem;
+        }
 
         p {
-          margin-top: -0.15rem;
           margin-left: 0.5rem;
           color: $whiteColor;
         }
@@ -47,18 +56,25 @@
       }
     }
   }
-}
 
-.logo {
-  font-size: 1.8rem;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $whiteColor;
+  @include respond(tablet) {
+    padding: 0 7rem;
+  }
 
-  a {
-    text-decoration: none;
-    color: $whiteColor;
+  @include respond(phone) {
+    height: 7rem;
+    padding: 0 4rem;
+
+    .logo {
+      font-size: 2.4rem;
+    }
+
+    nav {
+      ul {
+        .current-user {
+          display: none;
+        }
+      }
+    }
   }
 }

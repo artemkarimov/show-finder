@@ -43,7 +43,7 @@ const Header: FunctionComponent = () => {
             {isAuthenticated && (
               <>
                 <li className={styles['current-user']}>
-                  <PersonIcon htmlColor="white" />
+                  <PersonIcon htmlColor="white" fontSize="large" className={styles.icon} />
                   <p>{currentUser?.userName}</p>
                 </li>
                 <li style={{ marginLeft: '3rem' }} onClick={() => setConfirmDialogOpened(true)}>
