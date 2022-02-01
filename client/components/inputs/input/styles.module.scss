@@ -1,25 +1,25 @@
-@import '../../../styles/variables.scss';
+@import '@styles/variables';
 
 .input {
   width: 100%;
-  height: 2rem;
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
+  height: 3.2rem;
+  margin-top: 0.64rem;
+  font-size: 1.44rem;
   outline: none;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   border: 1px solid $veryLightGrayColor;
 
   &::placeholder {
-    font-size: 0.9rem;
+    font-size: 1.44rem;
     color: $grayColor;
   }
 }
 
 .label {
   font-weight: 700;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.32rem;
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.92rem;
 }
 
 .invalid-input {
@@ -28,6 +28,8 @@
 }
 
 .error-message {
+  font-size: 1.6rem;
   color: $redColor;
-  margin-top: -0.5rem;
+  margin-top: -0.8rem;
+  margin-bottom: 1rem;
 }
