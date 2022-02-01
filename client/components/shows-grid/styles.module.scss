@@ -1,9 +1,15 @@
+@import '@styles/mixins';
+
 .grid {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(51.2rem, 1fr));
+  gap: 2.4rem;
   align-content: center;
+
+  @include respond(tablet-land) {
+    grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  }
 }
