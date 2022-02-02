@@ -54,14 +54,19 @@ const ShowDetails: FunctionComponent<Props> = ({ shows }) => {
               {shows.map((show, index) => {
                 const streamingServiceName = show.streamingService.name;
                 return (
-                  <li key={streamingServiceName} style={{ display: 'flex', marginBottom: '1rem' }}>
+                  <li
+                    key={streamingServiceName}
+                    style={{ display: 'flex', marginBottom: '1.6rem' }}
+                  >
                     <Image
                       src={imagesPaths[index]}
                       alt={streamingServiceName}
                       width={100}
                       height={100}
                     />
-                    <h4 style={{ marginLeft: '1rem' }}>{streamingServiceName}</h4>
+                    <h4 style={{ marginLeft: '1.6rem', marginTop: '3.2rem' }}>
+                      {streamingServiceName}
+                    </h4>
                   </li>
                 );
               })}

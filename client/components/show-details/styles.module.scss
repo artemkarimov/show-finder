@@ -1,14 +1,15 @@
-@import '../../styles/variables.scss';
+@import '@styles/variables';
+@import '@styles/mixins';
 
 .content {
   width: 95%;
-  max-width: 60rem;
-  margin: 2rem auto;
-  font-size: 1.25rem;
-  line-height: 2rem;
+  max-width: 96rem;
+  margin: 3.2rem auto;
+  font-size: 2rem;
+  line-height: 3.2rem;
   background-color: $lightGrayColor;
-  border-radius: 6px;
-  padding: 1rem;
+  border-radius: 0.6rem;
+  padding: 1.6rem;
 
   p {
     color: $bastilleColor;
@@ -23,33 +24,52 @@
   }
 
   .image {
-    margin: 1rem auto;
+    margin: 1.6rem auto;
     width: 100%;
-    max-width: 600px;
+    max-width: 60rem;
   }
 
   @media (min-width: 768px) {
-    padding: 2rem;
+    padding: 3.2rem;
+  }
+
+  @include respond(phone) {
+    margin-top: -3rem;
   }
 }
 
 .details {
   display: flex;
-  flex: 1 1 0px;
+  flex: 1 1 0;
+
+  section:nth-child(1) {
+    margin-right: 3rem;
+
+    @include respond(phone) {
+      margin-right: 0;
+    }
+  }
 
   section:nth-child(2) {
-    max-width: 25rem;
+    max-width: 40rem;
   }
 
   .show-details {
-    margin-left: 10rem;
+    margin-left: 16rem;
+
+    @include respond(phone) {
+      margin-left: 14rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 
   ul {
     list-style: none;
+    margin-top: 1rem;
 
     li {
-      font-size: 1.1rem;
+      font-size: 1.76rem;
 
       span {
         font-weight: 700;
@@ -58,6 +78,11 @@
   }
 
   .message {
-    font-size: 1rem;
+    font-size: 1.6rem;
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
+    margin-top: 2rem;
   }
 }
