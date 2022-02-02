@@ -1,33 +1,33 @@
-@import '../../styles/variables.scss';
+@import '@styles/variables';
 
 .header {
-  padding-bottom: 1rem;
-  border-bottom: 8px solid $gainsboroColor;
+  padding-bottom: 1.6rem;
+  border-bottom: 0.8rem solid $gainsboroColor;
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 1.6rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: $bastilleColor;
     line-height: initial;
     text-align: center;
 
     @media (min-width: 768px) {
       text-align: left;
-      margin-left: 10rem;
+      margin-left: 16rem;
     }
   }
 
   img {
-    width: 200px;
-    height: 120px;
+    width: 20rem;
+    height: 12rem;
   }
 
   @media (min-width: 768px) {
-    margin-top: -1.2rem;
+    margin-top: -1.92rem;
     flex-direction: row;
   }
 }
