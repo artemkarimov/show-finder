@@ -41,43 +41,45 @@ const SubscriptionPlansPage: NextPage<Props> = ({ show, subscriptionPrices }) =>
         <title>ShowFinder - {show.title} | Subscription Plans</title>
       </Head>
       <SearchBar />
-      <Card maxWidth="35rem">
-        {!prices.length && (
-          <h3 className={styles.heading}>
-            Unfortunately none of the streaming services that have {show.type} "{show.title}" in
-            their libraries are available in your country
-          </h3>
-        )}
-        {!!prices.length && (
-          <h3 className={styles.heading}>
-            Prices for subscriptions for streaming services that are available in{' '}
-            {!!prices.length && prices[0].country.name} where {show.type} "{show.title}" can be
-            watched
-          </h3>
-        )}
-        <ul>
-          {prices.map((value, index) => (
-            <li key={index} className={styles.item}>
-              <Image
-                src={getLogoPath(value.streamingService.name)}
-                alt={value.streamingService.name}
-                width={60}
-                height={60}
-              />
-              <h3 className={styles.plan}>{value.subscriptionPlan.name}</h3>
-              <p className={styles.cost}>{value.cost}</p>
-              <div className={styles.button}>
-                <ExploreButton link={prices.length ? value.streamingService.link : ''} />
-              </div>
-            </li>
-          ))}
-        </ul>
-        {!!prices.length && currentUser && (
-          <div>
-            <CommentSection showId={show.id} userId={currentUser.id} />
-          </div>
-        )}
-      </Card>
+      <div className={styles.card}>
+        <Card maxWidth="56rem">
+          {!prices.length && (
+            <h3 className={styles.heading}>
+              Unfortunately none of the streaming services that have {show.type} "{show.title}" in
+              their libraries are available in your country
+            </h3>
+          )}
+          {!!prices.length && (
+            <h3 className={styles.heading}>
+              Prices for subscriptions for streaming services that are available in{' '}
+              {!!prices.length && prices[0].country.name} where {show.type} "{show.title}" can be
+              watched
+            </h3>
+          )}
+          <ul>
+            {prices.map((value, index) => (
+              <li key={index} className={styles.item}>
+                <Image
+                  src={getLogoPath(value.streamingService.name)}
+                  alt={value.streamingService.name}
+                  width={60}
+                  height={60}
+                />
+                <h3 className={styles.plan}>{value.subscriptionPlan.name}</h3>
+                <p className={styles.cost}>{value.cost}</p>
+                <div className={styles.button}>
+                  <ExploreButton link={prices.length ? value.streamingService.link : ''} />
+                </div>
+              </li>
+            ))}
+          </ul>
+          {!!prices.length && currentUser && (
+            <div>
+              <CommentSection showId={show.id} userId={currentUser.id} />
+            </div>
+          )}
+        </Card>
+      </div>
     </>
   );
 };
