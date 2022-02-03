@@ -44,7 +44,7 @@ const CommentSection: FunctionComponent<Props> = ({ showId, userId }) => {
         </Button>
       </div>
       {opened && (
-        <div>
+        <div className={styles['leave-comment']}>
           <input
             className={styles.input}
             type="text"
